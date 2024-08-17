@@ -3,17 +3,15 @@ import tkinter.ttk as ttk
 import tkinter.messagebox as msg
 
 mobile_list = []
-
 def save_click():
     mobile = (brand.get(), model.get(), color.get())
     print(mobile)
     mobile_list.append(mobile)
     msg.showinfo("mobile Save", "mobile " + str(mobile) + " Saved")
     refresh_table()
-    id.set(id.get() + 1)
     brand.set("")
     model.set("")
-
+    color.set("")
 def refresh_table():
     for item in table.get_children():
         table.delete(item)
@@ -71,8 +69,6 @@ table.place(x=230, y=20)
 refresh_table()
 
 tkinter.Button(win, text="Save", width=10, command=save_click).place(x=80,y=240)
-
-id.set(1)
 
 win.mainloop()
 
